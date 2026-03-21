@@ -1,1 +1,1 @@
- gst-launch-1.0 -v udpsrc port=5001 caps="application/x-rtp,media=video,encoding-name=H264,payload=96" ! rtph264depay ! avdec_h264 ! videoconvert ! d3d11videosink  
+gst-launch-1.0 -v udpsrc port=5000 ! "application/x-rtp,media=video,encoding-name=H264,payload=96" ! rtph264depay ! decodebin ! videoconvert ! d3d11videosink sync=false
