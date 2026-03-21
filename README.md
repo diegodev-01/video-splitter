@@ -47,6 +47,8 @@ sudo apt install -y gstreamer1.0-tools \
 
 ## How to use
 
+### Host
+
 1. Have to give the excecution permissions to main script
 
     ``` bash
@@ -62,3 +64,13 @@ sudo apt install -y gstreamer1.0-tools \
     ```
 
     > By default, the ports used are 5001, 5002, and 5003.
+
+### Client
+
+1. Run the 'receiver.sh'.
+
+2. If you want to test the script without the script, you can use this
+
+``` bash
+    gst-launch-1.0 -v udpsrc port=5001 caps="application/x-rtp,media=video,encoding-name=H264,payload=96" ! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink sync=false
+```
